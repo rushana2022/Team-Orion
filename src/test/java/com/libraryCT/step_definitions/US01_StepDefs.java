@@ -18,7 +18,7 @@ public class US01_StepDefs {
     @Given("I am on the login page")
     public void i_am_on_the_login_page() {
 
-        Driver.getDriver().get("https://library2.cydeo.com/login.html");
+        Driver.getDriver().get(ConfigurationReader.getProperty("libraryUrl"));
 
 
     }
@@ -34,9 +34,13 @@ public class US01_StepDefs {
 
     HomePage_LC homePage = new HomePage_LC();
 
-    @When("I click on Users link")
-    public void i_click_on_link() {
-        homePage.UsersModule.click();
+    @When("I click on {string} link")
+    public void i_click_on_link(String expectedText) {
+        if(expectedText.equals(homePage.UsersModule.getText())){
+            homePage.UsersModule.click();
+        }else{
+            System.out.println("Parameter text NOT MATCHING with the Element's text!!!");
+        }
 
 
     }
