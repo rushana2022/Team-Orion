@@ -6,14 +6,16 @@ Feature: The librarian should be able to update the number of user rows displaye
     Given I am on the login page
     And I login to the application as a librarian
     When I navigate to the Users page
-    And I set the dropdown to "<index>" students
-    Then the page should contain "<number of students>" student rows
+    And I set the dropdown to "<index>"
+    Then the actual "<number of student rows>" displayed on the page should match the number at index
 
-    |number of students| index|
-    |5                 |0     |
-    |10                |1     |
-    |15                |2     |
-    |50                |3     |
-    |100               |4     |
-    |200               |5     |
-    |500               |6     |
+
+    Examples:
+      | number of student rows | index |
+      | 5                      | 0     |
+      | 10                     | 1     |
+      | 15                     | 2     |
+      | 50                     | 3     |
+      | 100                    | 4     |
+      | 200                    | 5     |
+      | 500                    | 6     |

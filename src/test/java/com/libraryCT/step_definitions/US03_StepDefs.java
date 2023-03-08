@@ -2,17 +2,22 @@ package com.libraryCT.step_definitions;
 
 import com.libraryCT.pages.LibrarianUserPageML;
 import com.libraryCT.pages.LoginPage_RB;
+import com.libraryCT.utilities.BrowserUtils;
 import com.libraryCT.utilities.ConfigurationReader;
 import com.libraryCT.utilities.Driver;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.velocity.runtime.directive.Parse;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.Map;
 
 public class US03_StepDefs {
 
@@ -25,6 +30,7 @@ public class US03_StepDefs {
     public void i_login_to_the_application_as_a_librarian() {
         LoginPage_RB loginPage_rb = new LoginPage_RB();
         loginPage_rb.login(ConfigurationReader.getProperty("librarian_username"), ConfigurationReader.getProperty("librarian_password"));
+        loginPage_rb.signInBtn.click();
     }
 
     LibrarianUserPageML librarianUserPageML = new LibrarianUserPageML();
@@ -32,17 +38,22 @@ public class US03_StepDefs {
     public void i_navigate_to_the_users_page() {
         librarianUserPageML.usersModuleButton.click();
     }
-    @When("I set the dropdown to {string} students")
-    public void i_set_the_dropdown_to_students(int index) {
+
+
+    @And("I set the dropdown to {string}")
+    public void iSetTheDropdownTo(String arg0) {
         Select rowNumberDropdown = new Select(Driver.getDriver().findElement(By.name("tbl_users_length")));
+        int index = Integer.parseInt(arg0);
         rowNumberDropdown.selectByIndex(index);
-
-    }
-    @Then("the page should contain {string} student rows")
-    public void the_page_should_contain_student_rows(String string) {
-        List<WebElement> rows =  Driver.getDriver().findElements(By.xpath("//table[@aria-describedby='tbl_users_info']"));
-        int count = rows.size();
-        Assert.assertTrue(string.equals(count));
     }
 
+    @Then("the actual {string} displayed on the page should match the number at index")
+    public void theActualDisplayedOnThePageShouldMatchTheNumberAtIndex(String arg0) {
+        BrowserUtils.sleep(3);
+        WebElement userTable = Driver.getDriver().findElement(By.xpath("//table[@aria-describedby='tbl_users_info']/tbody"));
+        List<WebElement> rows =  Driver.getDriver().findElements(By.tagName("tr"));
+        int count = rows.size()-1;
+        int arg1 = Integer.parseInt(arg0);
+        Assert.assertEquals(arg1,count);
+    }
 }
