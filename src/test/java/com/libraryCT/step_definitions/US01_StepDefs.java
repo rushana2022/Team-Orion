@@ -53,12 +53,6 @@ public class US01_StepDefs {
             Assert.assertNotEquals(usersPage.usersIdList.get(i).getText(),usersPage.usersIdList.get(i+1).getText());
 
         }
-
-
-
-
-
-
     }
 
 
