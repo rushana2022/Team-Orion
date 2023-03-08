@@ -1,5 +1,6 @@
 package com.libraryCT.pages;
 
+import com.libraryCT.utilities.ConfigurationReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,6 +17,12 @@ public class LoginPage_RB extends BasePage {
 
     @FindBy(xpath = "//a[@class='nav-link dropdown-toggle']")
     public WebElement accountHolderName;
+
+    public void login(){
+        emailInput.sendKeys(ConfigurationReader.getProperty("librarian_username"));
+        passwordInput.sendKeys(ConfigurationReader.getProperty("librarian_password"));
+        signInBtn.click();
+    }
 
     public void login(String userName, String password) {
         emailInput.sendKeys(userName);

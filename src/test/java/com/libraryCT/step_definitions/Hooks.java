@@ -11,7 +11,6 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.time.Duration;
 
-
 public class Hooks {
 
     @Before(order = 1)
