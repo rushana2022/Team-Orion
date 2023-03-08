@@ -18,6 +18,9 @@ public class UsersPage extends BasePage{
     @FindBy(xpath = "//td")
     public List<WebElement> valuesMap;
 
+    @FindBy (xpath = "//tbody//td[2]")
+    public List<WebElement> usersIdList;
+
 
     public void navigateTo(String page) { // Dashboard, Users, Books
         WebElement linkToPage = Driver.getDriver().findElement(By.xpath("//span[.='" + page + "']"));
