@@ -7,6 +7,7 @@ Feature: books search
     When I navigate to "Books" page
     And I search for "The Goldfinch"
     Then books table should contain results matching The Goldfinch
+
       | ISBN     | 387927210592  |
       | Name     | The Goldfinch |
       | Author   | Donna Tartt   |
