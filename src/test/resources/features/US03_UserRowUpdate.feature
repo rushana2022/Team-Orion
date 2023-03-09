@@ -8,7 +8,6 @@ Feature: The librarian should be able to update the number of user rows displaye
     And I set the dropdown to "<index>"
     Then the actual "<number of student rows>" displayed on the page should match the number at index
 
-
     Examples:
       | number of student rows | index |
       | 5                      | 0     |

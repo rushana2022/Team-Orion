@@ -1,4 +1,4 @@
-@US01
+@us1
 Feature: Users table
 
   Agile Story : As a user, when I search users, each user should have a unique ID.

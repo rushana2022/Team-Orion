@@ -31,22 +31,9 @@ public class US08_SearchUserByID_StepDefs {
         Map<String, Object> expectedMap = new TreeMap<>(expectedData);
         Map<String, Object> actualMap = new TreeMap<>();
 
-        List<String> keys = new ArrayList<>();
-        for (WebElement eachKey : usersPage.keysMap) {
-            keys.add(eachKey.getText());
+        for (int i = 1; i < usersPage.keysMap.size()-2; i++) {
+            actualMap.put(usersPage.keysMap.get(i).getText(), usersPage.valuesMap.get(i).getText());
         }
-
-        List<String> values = new ArrayList<>();
-        for (WebElement eachValue : usersPage.valuesMap) {
-            values.add(eachValue.getText());
-        }
-
-        for (int i = 1; i < keys.size()-2; i++) {
-            actualMap.put(keys.get(i), values.get(i));
-        }
-
-        System.out.println("expectedData = " + expectedData);
-        System.out.println("actualMap = " + actualMap);
 
         Assert.assertEquals(expectedMap,actualMap);
 

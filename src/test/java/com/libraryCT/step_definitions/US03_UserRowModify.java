@@ -18,14 +18,15 @@ import java.util.List;
 
 public class US03_UserRowModify {
 
+    LoginPage_RB loginPage_rb = new LoginPage_RB();
+    LibrarianUserPageML librarianUserPageML = new LibrarianUserPageML();
 
     @Given("I login to the application as a librarian")
     public void i_login_to_the_application_as_a_librarian() {
-        LoginPage_RB loginPage_rb = new LoginPage_RB();
         loginPage_rb.login();
     }
 
-    LibrarianUserPageML librarianUserPageML = new LibrarianUserPageML();
+
     @When("I navigate to the Users page")
     public void i_navigate_to_the_users_page() {
         librarianUserPageML.usersModuleButton.click();
@@ -42,7 +43,6 @@ public class US03_UserRowModify {
     @Then("the actual {string} displayed on the page should match the number at index")
     public void theActualDisplayedOnThePageShouldMatchTheNumberAtIndex(String arg0) {
         BrowserUtils.sleep(3);
-        WebElement userTable = Driver.getDriver().findElement(By.xpath("//table[@aria-describedby='tbl_users_info']/tbody"));
         List<WebElement> rows =  Driver.getDriver().findElements(By.tagName("tr"));
         int count = rows.size()-1;
         int arg1 = Integer.parseInt(arg0);

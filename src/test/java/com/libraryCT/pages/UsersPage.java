@@ -14,6 +14,12 @@ public class UsersPage extends BasePage{
     
     @FindBy(xpath = "//span[contains(.,'Dashboard')]")
     public WebElement dashboardTitle;
+
+    @FindBy(xpath = "(//a//span)[5]")
+    public WebElement nameOfStudent;
+
+    @FindBy(xpath = "(//a//span)[7]")
+    public WebElement nameOfLibrarian;
     
     @FindBy(xpath = "//th")
     public List<WebElement> keysMap;
