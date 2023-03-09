@@ -5,27 +5,24 @@ import com.libraryCT.pages.LoginPage_RB;
 import com.libraryCT.utilities.BrowserUtils;
 import com.libraryCT.utilities.ConfigurationReader;
 import com.libraryCT.utilities.Driver;
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.velocity.runtime.directive.Parse;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
-import java.util.Map;
 
-public class US03_StepDefs {
+public class US03_UserRowModify {
+
 
     @Given("I login to the application as a librarian")
     public void i_login_to_the_application_as_a_librarian() {
         LoginPage_RB loginPage_rb = new LoginPage_RB();
-        loginPage_rb.login(ConfigurationReader.getProperty("librarian_username"), ConfigurationReader.getProperty("librarian_password"));
-        loginPage_rb.signInBtn.click();
+        loginPage_rb.login();
     }
 
     LibrarianUserPageML librarianUserPageML = new LibrarianUserPageML();
