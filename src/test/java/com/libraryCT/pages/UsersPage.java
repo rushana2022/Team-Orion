@@ -27,9 +27,19 @@ public class UsersPage extends BasePage{
         linkToPage.click();
     }
 
+    public void clickAny(int num) { // 5,10,15,50,100,200,500
+        WebElement clickAnyNum = Driver.getDriver().findElement(By.xpath("//option[@value='" + num + "']"));
+        clickAnyNum.click();
+    }
+
     public String value(int num){
         WebElement clickAnyNum = Driver.getDriver().findElement(By.xpath("//option[@value='" + num + "']"));
         return clickAnyNum.getAttribute("value");
+    }
+
+    public int records(){
+        List<WebElement> recordsNumber = Driver.getDriver().findElements(By.xpath("//tr//td[2]"));
+        return recordsNumber.size();
     }
 
     public boolean isPageDisplayed(String module){
