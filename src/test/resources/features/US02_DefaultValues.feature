@@ -1,7 +1,7 @@
+@us2
 Feature: Show records functionality
   User Story2: As a user, I want to see users information in different records.
 
-  @wip
   Scenario: verify default values in Users page
     Given I am on the login page
     And I login as a librarian

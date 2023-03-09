@@ -1,4 +1,4 @@
-@us05
+@us5
 Feature: Search functionality on the users page
 
   Background:
@@ -8,7 +8,7 @@ Feature: Search functionality on the users page
 
   Scenario: Search accuracy
     When I search for "test"
-    Then table should contain rows with "Test"
+    Then table should contain rows with "test"
 
   Scenario: Table columns names
     Then table should have following column names:

@@ -16,8 +16,6 @@ public class US11_LoginPage_StepDefs {
         login.login(email,password);
     }
 
-
-
     UsersPage usersPage = new UsersPage();
 
     @Then("{string} page should be displayed")

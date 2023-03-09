@@ -44,18 +44,8 @@ public class US09_SearchBooks_StepDefs {
         Map<String, Object> expectedMap = new TreeMap<>(bookInfo);
         Map<String, Object> actualMap = new TreeMap<>();
 
-        List<String> keys = new ArrayList<>();
-        for (WebElement eachKey : usersPage.keysMap) {
-            keys.add(eachKey.getText());
-        }
-
-        List<String> values = new ArrayList<>();
-        for (WebElement eachValue : usersPage.valuesMap) {
-            values.add(eachValue.getText());
-        }
-
-        for (int i = 1; i < keys.size()-1; i++) {
-            actualMap.put(keys.get(i), values.get(i));
+        for (int i = 1; i < usersPage.keysMap.size()-1; i++) {
+            actualMap.put(usersPage.keysMap.get(i).getText(), usersPage.valuesMap.get(i).getText());
         }
 
         Assert.assertEquals(expectedMap,actualMap);
