@@ -1,7 +1,7 @@
 Feature: Library login feature
   User Story6: As a user, I should be able to Login with valid credentials.
 
-  @wip
+
   Scenario Outline: Verify librarian information
     Given librarian is on the login page of the library application
     When librarian enters valid email "<email address>" and password "<password>"
