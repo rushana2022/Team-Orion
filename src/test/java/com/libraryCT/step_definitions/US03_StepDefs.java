@@ -21,11 +21,6 @@ import java.util.Map;
 
 public class US03_StepDefs {
 
-    @Given("I am on the login page")
-    public void i_am_on_the_login_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("libraryUrl"));
-
-    }
     @Given("I login to the application as a librarian")
     public void i_login_to_the_application_as_a_librarian() {
         LoginPage_RB loginPage_rb = new LoginPage_RB();
