@@ -13,13 +13,5 @@ public class US12_PageNav_StepDefs {
     UsersPage usersPage = new UsersPage();
 
 
-    @When("I click on {string} link")
-    public void iClickOnLink(String link) {
-        usersPage.navigateTo(link);
-    }
 
-    @And("I login as a librarian")
-    public void iLoginAsALibrarian() {
-        loginPage_rb.login(ConfigurationReader.getProperty("librarian_username"), ConfigurationReader.getProperty("librarian_password"));
-    }
 }
