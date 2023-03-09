@@ -24,15 +24,7 @@ public class US02_StepDefs {
     UserPage userpage = new UserPage();
 
     
-    @And("I login as a librarian")
-    public void i_login_as_a_librarian() {
-        loginPage_rb.emailInput.sendKeys(ConfigurationReader.getProperty("librarian_username"));
-        loginPage_rb.passwordInput.sendKeys(ConfigurationReader.getProperty("librarian_password"));
-        loginPage_rb.signInBtn.click();
-
-    }
-    
-    @Then("show records default value should be {int}")
+       @Then("show records default value should be {int}")
     public void show_records_default_value_should_be(int expectedDefaultValueOnShowRecords) {
         Select select = new Select(userpage.showRecords);
         String actualDefaultValue = select.getFirstSelectedOption().getText();
