@@ -1,4 +1,4 @@
-@US10
+@us10
 Feature:Login with parameters
   Scenario: Login as librarian 11
     Given I am on the login page
