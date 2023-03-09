@@ -31,16 +31,7 @@ public class US02_StepDefs {
         loginPage_rb.signInBtn.click();
 
     }
-    @When("I click on {string} link")
-    public void i_click_on_link(String expectedText) {
-        if(expectedText.equals(homePage.userModule.getText())){
-            homePage.userModule.click();
-
-        }else {
-            System.out.println("Expected text not matching the actual text");
-        }
-
-    }
+    
     @Then("show records default value should be {int}")
     public void show_records_default_value_should_be(int expectedDefaultValueOnShowRecords) {
         Select select = new Select(userpage.showRecords);
