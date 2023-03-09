@@ -1,7 +1,6 @@
+@us3
 Feature: The librarian should be able to update the number of user rows displayed on the page
-  User Story: As a user, I want to change the number of raws to see the user info
 
-  @wip
   Scenario Outline: Librarian should be able to update the number of rows on the user page
     Given I am on the login page
     And I login to the application as a librarian
