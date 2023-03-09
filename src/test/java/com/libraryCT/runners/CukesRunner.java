@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/libraryCT/step_definitions",
         dryRun = false, // true - will print snippets only, false - will open a browser and print snippets
-        tags = "@us9",
+        tags = "@us11",
         publish = true
 )
 public class CukesRunner {}
