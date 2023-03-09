@@ -23,11 +23,7 @@ public class US02_StepDefs {
 
     UserPage userpage = new UserPage();
 
-    @Given("I am on the login page")
-    public void i_am_on_the_login_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("libraryUrl"));
-
-    }
+    
     @And("I login as a librarian")
     public void i_login_as_a_librarian() {
         loginPage_rb.emailInput.sendKeys(ConfigurationReader.getProperty("librarian_username"));
@@ -52,9 +48,7 @@ public class US02_StepDefs {
         int actualValueInInteger = Integer.parseInt(actualDefaultValue);
 
         Assert.assertEquals(expectedDefaultValueOnShowRecords,actualValueInInteger);
-        System.out.println("actualValue = " + actualValueInInteger);
-        System.out.println("expectedDefaultValueOnShowRecords = " + expectedDefaultValueOnShowRecords);
-
+      
     }
 
     @Then("show records should have following options")
@@ -63,9 +57,5 @@ public class US02_StepDefs {
         List<String> actualListOfSHowRecords = BrowserUtils.getElementsText(userpage.listShowRecords);
 
       Assert.assertEquals(expectedRecordList,actualListOfSHowRecords);
-
-      System.out.println("actualListOfSHowRecords = " + actualListOfSHowRecords);
-
     }
-
 }
