@@ -8,6 +8,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class US01_UniqueID_StepDefs {
 
@@ -31,10 +37,19 @@ public class US01_UniqueID_StepDefs {
 
     @Then("Each user id should be unique")
     public void each_user_id_should_be_unique() {
-        for (int i = 0; i < usersPage.idNumbers.size()-1; i++) {
+        List<String> expected = new ArrayList<>(); // accepts duplicates
 
-            Assert.assertNotEquals(usersPage.idNumbers.get(i).getText(),usersPage.idNumbers.get(i+1).getText());
+        for (WebElement idNumber : usersPage.idNumbers) {
+            expected.add(idNumber.getText());
         }
+
+        Set<String> actual = new HashSet<>(); // no duplicates
+
+        for (WebElement idNumber : usersPage.idNumbers) {
+            actual.add(idNumber.getText());
+        }
+
+        Assert.assertEquals(actual.size(),expected.size());
 
 
 
