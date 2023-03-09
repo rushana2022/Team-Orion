@@ -12,7 +12,6 @@ public class UserPage {
     public UserPage(){
         PageFactory.initElements(Driver.getDriver(),this);}
 
-
         @FindBy(xpath ="//select[@name='tbl_users_length']")
         public WebElement showRecords;
 
