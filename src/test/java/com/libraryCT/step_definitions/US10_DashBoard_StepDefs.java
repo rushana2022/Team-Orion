@@ -27,9 +27,4 @@ public class US10_DashBoard_StepDefs {
     public void dashboard_should_be_displayed(String expectedTitle) {
         Assert.assertTrue(usersPage.dashboardTitle.getText().contains(expectedTitle));
     }
-
-
-
-
-
 }
