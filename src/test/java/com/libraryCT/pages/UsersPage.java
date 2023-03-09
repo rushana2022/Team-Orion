@@ -29,4 +29,11 @@ public class UsersPage extends BasePage{
         return clickAnyNum.getAttribute("value");
     }
 
+    public boolean isPageDisplayed(String module){
+        WebElement modules = Driver.getDriver().findElement(By.xpath("//span[.='"+module+"']"));
+
+        return modules.isDisplayed();
+
+    }
+
 }

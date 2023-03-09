@@ -27,5 +27,6 @@ public class LoginPage_RB extends BasePage {
     public void login(String userName, String password) {
         emailInput.sendKeys(userName);
         passwordInput.sendKeys(password);
+        signInBtn.click();
     }
 }
