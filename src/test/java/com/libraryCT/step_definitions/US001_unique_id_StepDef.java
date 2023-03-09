@@ -21,9 +21,7 @@ public class US001_unique_id_StepDef {
     LoginPage_RB loginPage_rb = new LoginPage_RB();
     @Given("I login as a librarian")
     public void i_login_as_a_librarian() {
-        loginPage_rb.emailInput.sendKeys(ConfigurationReader.getProperty("librarian_username"));
-        loginPage_rb.passwordInput.sendKeys(ConfigurationReader.getProperty("librarian_password"));
-       loginPage_rb.signInBtn.click();
+       loginPage_rb.login();
     }
 
     HomePage homePage = new HomePage();
@@ -31,11 +29,7 @@ public class US001_unique_id_StepDef {
     @When("I click on {string} link")
     public void i_click_on_link(String expectedStr) {
 
-        if(expectedStr.equals(homePage.UsersModule.getText())){
-            homePage.UsersModule.click();
-        }else{
-            System.out.println("Parameter text NOT MATCHING with the Element's text!!!");
-        }
+       HomePage.clickTheModuleByStringParameter(homePage.UsersModule, expectedStr);
 
     }
 
