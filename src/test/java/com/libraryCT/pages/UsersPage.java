@@ -15,6 +15,7 @@ public class UsersPage extends BasePage{
     @FindBy(xpath = "//span[contains(.,'Dashboard')]")
     public WebElement dashboardTitle;
 
+
     @FindBy(xpath = "(//a//span)[5]")
     public WebElement nameOfStudent;
 
@@ -29,6 +30,16 @@ public class UsersPage extends BasePage{
 
     @FindBy(xpath = "//tr//td[2]")
     public List<WebElement> idNumbers;
+
+    @FindBy(xpath = "//span//a")
+    public WebElement addUserBtn;
+
+    @FindBy(xpath = "//form//div//input[@placeholder]")
+    public List<WebElement> placeHolders;
+
+    @FindBy(id = "address")
+    public WebElement textarea;
+
 
     public void navigateTo(String page) { // Dashboard, Users, Books
         WebElement linkToPage = Driver.getDriver().findElement(By.xpath("//span[.='" + page + "']"));
