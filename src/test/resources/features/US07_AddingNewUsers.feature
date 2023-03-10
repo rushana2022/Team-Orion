@@ -1,4 +1,4 @@
-@US07
+@us7
 Feature: Add new users dialog
   User Story: As a user, I want to add new users to the app.
 

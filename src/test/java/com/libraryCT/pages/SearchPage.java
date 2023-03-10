@@ -7,13 +7,6 @@ import java.util.List;
 
 public class SearchPage extends BasePage{
 
-
-    @FindBy(xpath = "//span[.='Users']")
-    public WebElement clickUser;
-
-    @FindBy(xpath = "//input[@type='search']")
-    public WebElement searchTest;
-
     @FindBy(xpath = "//th")
         public List<WebElement> columns;
 

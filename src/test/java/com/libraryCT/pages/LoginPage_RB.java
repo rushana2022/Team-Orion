@@ -16,8 +16,6 @@ public class LoginPage_RB extends BasePage {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement signInBtn;
 
-    @FindBy(xpath = "//a[@class='nav-link dropdown-toggle']")
-    public WebElement accountHolderName;
 
     public void onTheLoginPage(){
         Driver.getDriver().get(ConfigurationReader.getProperty("libraryUrl"));

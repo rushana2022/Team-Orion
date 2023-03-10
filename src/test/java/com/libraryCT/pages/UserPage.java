@@ -7,19 +7,15 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class UserPage {
+public class UserPage extends BasePage{
 
-    public UserPage(){
-        PageFactory.initElements(Driver.getDriver(),this);}
-
-        @FindBy(xpath ="//select[@name='tbl_users_length']")
-        public WebElement showRecords;
+    @FindBy(xpath = "//select[@name='tbl_users_length']")
+    public WebElement showRecords;
 
 
-        @FindBy(xpath = "//select[@name='tbl_users_length']//option")
-        public List<WebElement> listShowRecords;
+    @FindBy(xpath = "//select[@name='tbl_users_length']//option")
+    public List<WebElement> listShowRecords;
 
 
-
-    }
+}
 
