@@ -1,19 +1,24 @@
-Feature: Library login feature
-  User Story6: As a user, I should be able to Login with valid credentials.
+@us6
+Feature: User valid login
 
-  @wip
-  Scenario Outline: Verify librarian information
-    Given librarian is on the login page of the library application
-    When librarian enters valid email "<email address>" and password "<password>"
-    Then librarian clicks to Sign in button
-    Then account holder name should be name "<name>"
-
+  Scenario Outline: Verify user information <email>
+    Given I am on the login page
+    When I login using "<email>" and "<password>"
+    Then account holder name should be "<name>"
+    @students
     Examples:
-      | email address       | password    | name              |
-      | librarian11@library | libraryUser | Test Librarian 11 |
-      | librarian12@library | libraryUser | Test Librarian 12 |
-      | librarian13@library | libraryUser | Test Librarian 13 |
-      | librarian14@library | libraryUser | Test Librarian 14 |
+      | email             | password    | name            |
+     # | student11@library | libraryUser | Test Student 11 |
+     # | student12@library | libraryUser | Test Student 12 |
+     # | student13@library | libraryUser | Test Student 13 |
+      | student14@library | libraryUser | Test Student 14 |
+    @librarians
+    Examples:
+      | email               | password    | name              |
+     # | librarian13@library | libraryUser | Test Librarian 13 |
+     # | librarian14@library | libraryUser | Test Librarian 14 |
+     # | librarian15@library | libraryUser | Test Librarian 15 |
+      | librarian16@library | libraryUser | Test Librarian 16 |
 
 
 
